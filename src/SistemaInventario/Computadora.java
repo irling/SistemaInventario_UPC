@@ -1,14 +1,16 @@
 package SistemaInventario;
 
 public class Computadora extends Equipos_de_Computo {
+
     private String procesador;
     private int ram;
-    private double almacenamiento;
+    private int almacenamiento;
     private String gpu;
     private int fuente;
 
+    public Computadora(){}
     public Computadora(int id, String modelo, String marca, int ano, String serial_number,
-                       String estado, int stock, String procesador, int ram, double almacenamiento,
+                       String estado, int stock, String procesador, int ram, int almacenamiento,
                        String gpu, int fuente) {
 
         super(id, modelo, marca, ano, serial_number, estado, stock);
@@ -19,27 +21,13 @@ public class Computadora extends Equipos_de_Computo {
         this.fuente = fuente;
     }
 
-    public String getProcesador() {
-        return procesador;
-    }
+    //METODOS PARA EL CRUD
 
-    public int getRam() {
-        return ram;
+    public void añadirComputadora(int id, String modelo, String marca, int ano, String serial_number, String estado, int stock, String procesador, int ram, int almacenamiento, String gpu, int fuente){
+        Computadora computadora = new Computadora(id, modelo, marca, ano, serial_number, estado, stock, procesador, ram, almacenamiento, gpu, fuente);
+        ListaDeEquiposDeComputo.add(computadora);
     }
-
-    public double getAlmacenamiento() {
-        return almacenamiento;
-    }
-
-    public String getGpu() {
-        return gpu;
-    }
-
-    public int getFuente() {
-        return fuente;
-    }
-
-    public void ObtenerComputadora(){
+    public void ListarComputadoras(){
         System.out.println("Computadora { " + "ID: " + getId() +
                 " \nModelo: " + getModelo() +
                 " \nMarca: " + getMarca() +
@@ -54,4 +42,6 @@ public class Computadora extends Equipos_de_Computo {
                 " \nFuente de: " + fuente + " W" +
                 "} \n");
     }
+
+
 }
