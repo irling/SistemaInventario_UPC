@@ -12,11 +12,12 @@ public class Impresora extends Equipos_de_Computo{
         this.consumible = consumible;
         this.velocidad_impresion = velocidad_impresion;
     }
+
+
     public void añadirImpresora(int id, String modelo, String marca, int ano, String serial_number, String estado, int stock,String tipo_impresion, String consumible, int velocidad_impresion){
         Impresora imp = new Impresora(id, modelo, marca, ano, serial_number, estado, stock,tipo_impresion, consumible, velocidad_impresion );
         ListaDeEquiposDeComputo.add(imp);
     }
-
     public void ListarImpresora(){
         System.out.println("Laptop { " + "ID: " + getId() +
                 " \nModelo: " + getModelo() +

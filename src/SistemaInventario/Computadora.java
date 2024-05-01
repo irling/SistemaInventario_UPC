@@ -9,10 +9,7 @@ public class Computadora extends Equipos_de_Computo {
     private int fuente;
 
     public Computadora(){}
-    public Computadora(int id, String modelo, String marca, int ano, String serial_number,
-                       String estado, int stock, String procesador, int ram, int almacenamiento,
-                       String gpu, int fuente) {
-
+    public Computadora(int id, String modelo, String marca, int ano, String serial_number, String estado, int stock, String procesador, int ram, int almacenamiento, String gpu, int fuente) {
         super(id, modelo, marca, ano, serial_number, estado, stock);
         this.procesador = procesador;
         this.ram = ram;
