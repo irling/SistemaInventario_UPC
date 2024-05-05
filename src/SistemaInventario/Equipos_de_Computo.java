@@ -29,10 +29,7 @@ public class  Equipos_de_Computo {
             ListaDeEquiposDeComputo = new ArrayList<>();
         }
     }
-
-
-
-
+    
     //GETTER'S
     public int getId() {
         return id;
