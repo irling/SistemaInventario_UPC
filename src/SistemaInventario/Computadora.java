@@ -59,7 +59,7 @@ public class Computadora extends Equipos_de_Computo {
         boolean encontrado = false;
         for (Equipos_de_Computo equipo : ListaDeEquiposDeComputo) {
             if (equipo instanceof Computadora && equipo.getId() == id) {
-                ListaDeEquiposDeComputo.remove(equipo); // Eliminar la computadora existente
+                ListaDeEquiposDeComputo.remove(equipo);
                 encontrado = true;
                 break;
             }
@@ -71,7 +71,6 @@ public class Computadora extends Equipos_de_Computo {
             throw new Exception("No se encontró una computadora con el ID especificado.");
         }
     }
-
 
 
 
