@@ -80,8 +80,6 @@ public class Computadora extends Equipos_de_Computo {
         }
     }
 
-
-
     public void eliminarComputadoras(int id) throws Exception {
         boolean eliminado = false;
         for (Equipos_de_Computo equipo : ListaDeEquiposDeComputo) {

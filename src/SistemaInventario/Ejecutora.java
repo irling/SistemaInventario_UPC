@@ -398,15 +398,9 @@ public class Ejecutora {
             System.out.println("Error al intentar eliminar la computadora: " + e.getMessage());
         }
     }
-    public static void eliminarLaptopUser() {
-
-    }
-    public static void eliminarServidorUser() {
-
-    }
-    public static void eliminarImpresoraUser() {
-
-    }
+    public static void eliminarLaptopUser() {}
+    public static void eliminarServidorUser() {}
+    public static void eliminarImpresoraUser() {}
 
     //BUSCAR ITEM'S
     public static void buscarComputadoraUser() {
@@ -424,14 +418,8 @@ public class Ejecutora {
             System.out.println("Error al intentar buscar la computadora: " + e.getMessage());
         }
     }
-    public static void buscarLaptopUser() {
-
-    }
-    public static void buscarServidorUser() {
-
-    }
-    public static void buscarImpresoraUser() {
-
-    }
+    public static void buscarLaptopUser() {}
+    public static void buscarServidorUser() {}
+    public static void buscarImpresoraUser() {}
 
 }
