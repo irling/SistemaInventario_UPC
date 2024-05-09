@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class  Equipos_de_Computo {
+
     //ATRIBUTOS
     private int id;
     private String modelo;
@@ -59,4 +60,25 @@ public class  Equipos_de_Computo {
     public void ListarLaptop(){}
     public void ListarServidor(){}
     public void ListarImpresora(){}
+
+    protected void eliminarComputadora(int id) {
+    }
+
+    protected void setModelo(String modelo) {
+    }
+
+    protected void setMarca(String marca) {
+    }
+
+    protected void setAno(int ano) {
+    }
+
+    protected void setSerial_number(String serialNumber) {
+    }
+
+    protected void setEstado(String estado) {
+    }
+
+    protected void setStock(int stock) {
+    }
 }
