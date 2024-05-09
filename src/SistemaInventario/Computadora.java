@@ -55,30 +55,23 @@ public class Computadora extends Equipos_de_Computo {
                 "} \n");
     }
 
-
     public void actualizarComputadoras(int id, String modelo, String marca, int ano, String serial_number, String estado, int stock, String procesador, int ram, int almacenamiento, String gpu, int fuente) throws Exception {
         boolean encontrado = false;
         for (Equipos_de_Computo equipo : ListaDeEquiposDeComputo) {
             if (equipo instanceof Computadora && equipo.getId() == id) {
-                equipo.setModelo(modelo);
-                equipo.setMarca(marca);
-                equipo.setAno(ano);
-                equipo.setSerial_number(serial_number);
-                equipo.setEstado(estado);
-                equipo.setStock(stock);
-                this.setProcesador(procesador);
-                this.setRam(ram);
-                this.setAlmacenamiento(almacenamiento);
-                this.setGpu(gpu);
-                this.setFuente(fuente);
+                ListaDeEquiposDeComputo.remove(equipo); // Eliminar la computadora existente
                 encontrado = true;
                 break;
             }
         }
-        if (!encontrado) {
+        if (encontrado) {
+            añadirComputadora(id, modelo, marca, ano, serial_number, estado, stock, procesador, ram, almacenamiento, gpu, fuente);
+            System.out.println("La computadora con ID " + id + " ha sido actualizada exitosamente.");
+        } else {
             throw new Exception("No se encontró una computadora con el ID especificado.");
         }
     }
+
 
 
 

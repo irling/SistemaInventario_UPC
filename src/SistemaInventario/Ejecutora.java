@@ -413,7 +413,7 @@ public class Ejecutora {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese el ID de la computadora que desea buscar:");
         int id = scanner.nextInt();
-        scanner.nextLine(); // Limpiar el buffer de entrada
+        scanner.nextLine();
 
         try {
             Computadora computadora = new Computadora();
