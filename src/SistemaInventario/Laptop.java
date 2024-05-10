@@ -92,4 +92,12 @@ public class Laptop extends Equipos_de_Computo{
         }
 
     }
+    public Laptop buscarLaptop(int id) throws NoSuchElementException {
+        for (Equipos_de_Computo equipo : ListaDeEquiposDeComputo) {
+            if (equipo instanceof Laptop && equipo.getId() == id) {
+                return (Laptop) equipo;
+            }
+        }
+        throw new NoSuchElementException("No se encontró una laptop con el ID especificado.");
+    }
 }
