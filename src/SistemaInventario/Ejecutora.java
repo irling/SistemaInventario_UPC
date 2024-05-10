@@ -253,7 +253,7 @@ public class Ejecutora {
         laptop.añadirLaptop(id, modelo, marca, ano, serial_number, estado, stock, procesador, ram, almacenamiento, bateria);
     }
     public static void añadirServidorUser() {
-        Servidores servidor = new Servidores();
+        Servidor servidor = new Servidor();
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("===== INGRESE LOS DATOS =====");
@@ -326,7 +326,7 @@ public class Ejecutora {
         }
     }
     public static void ListarServidores(){
-        for (Equipos_de_Computo srv : Servidores.ListaDeEquiposDeComputo){
+        for (Equipos_de_Computo srv : Servidor.ListaDeEquiposDeComputo){
             srv.ListarServidor();
         }
     }
@@ -343,7 +343,7 @@ public class Ejecutora {
                 ListarComputadora();
             } else if (item instanceof Laptop) {
                 ListarLaptops();
-            } else if (item instanceof Servidores) {
+            } else if (item instanceof Servidor) {
                 ListarServidores();
             } else if (item instanceof Impresora) {
                 ListarImpresoras();
