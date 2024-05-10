@@ -71,6 +71,9 @@ public class  Equipos_de_Computo {
     public void ListarImpresora() {
     }
 
+    public void ListarTodo(){
+    }
+
     protected void eliminarComputadora(int id) {
     }
 

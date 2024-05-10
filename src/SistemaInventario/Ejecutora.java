@@ -6,11 +6,11 @@ public class Ejecutora {
     static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
         MenuInicio();
-        MenuAñadirItem();
-        MenulistarItem();
-        MenuActualizarItem();
-        MenuEliminarItem();
-        MenuBuscarItem();
+        //MenuAñadirItem();
+        //MenulistarItem();
+        //MenuActualizarItem();
+        //MenuEliminarItem();
+        //MenuBuscarItem();
     }
 
     //MENUS
@@ -28,21 +28,24 @@ public class Ejecutora {
             System.out.println("Opcion: ");
             opcion = scanner.nextInt();
 
-        }while (opcion<1 || opcion>6);
-        switch (opcion){
-            case 1: MenuAñadirItem();
-                break;
-            case 2: MenulistarItem();
-                break;
-            case 3: MenuActualizarItem();
-                break;
-            case 4: MenuEliminarItem();
-                break;
-            case 5: MenuBuscarItem();
-                break;
-            case 6:
-                System.exit(0);
-        };
+            switch (opcion){
+                case 1: MenuAñadirItem();
+                    break;
+                case 2: MenulistarItem();
+                    break;
+                case 3: MenuActualizarItem();
+                    break;
+                case 4: MenuEliminarItem();
+                    break;
+                case 5: MenuBuscarItem();
+                    break;
+                case 6:
+                    System.exit(0);
+                default:
+                    System.out.println("Opción no válida. Por favor, ingrese una opción válida.");
+            }
+        }while (opcion != 6);
+
     }
 
     //AÑADIR
@@ -81,10 +84,11 @@ public class Ejecutora {
             System.out.println("2.- Laptop");
             System.out.println("3.- Impresora");
             System.out.println("4.- Servidor");
-            System.out.println("5.- Salir del menu");
+            System.out.println("5.- Listar todos los items");
+            System.out.println("6.- Salir del menu");
             opcion = scanner.nextInt();
 
-        }while (opcion<1 || opcion>5);
+        }while (opcion<1 || opcion>6);
         switch (opcion){
             case 1: ListarComputadora();
                 break;
@@ -94,7 +98,9 @@ public class Ejecutora {
                 break;
             case 4:ListarServidores();
                 break;
-            case 5: MenuInicio();
+            case 5: ListarTodo();
+                break;
+            case 6: MenuInicio();
                 break;
         }
     }
@@ -186,7 +192,7 @@ public class Ejecutora {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("===== INGRESE LOS DATOS =====");
-        System.out.println("ID: ");
+        System.out.println("Ingrese el ID de la computadora que desea añadir: ");
         int id = scanner.nextInt();
         System.out.println("Modelo: ");
         String modelo = scanner.next();
@@ -203,13 +209,13 @@ public class Ejecutora {
 
         System.out.println("Procesador: ");
         String procesador = scanner.next();
-        System.out.println("RAM: ");
+        System.out.println("Memoria RAM: ");
         int ram = scanner.nextInt();
-        System.out.println("ALMACENAMIENTO: ");
+        System.out.println("Almacenamiento: ");
         int almacenamiento = scanner.nextInt();
-        System.out.println("GPU: ");
+        System.out.println("Tarjeta Grafica \'GPU\': ");
         String gpu = scanner.next();
-        System.out.println("FUENTE: ");
+        System.out.println("Fuente de: ");
         int fuente = scanner.nextInt();
 
         computadora.añadirComputadora(id, modelo, marca, ano, serial_number, estado, stock, procesador, ram, almacenamiento, gpu, fuente);
@@ -219,7 +225,7 @@ public class Ejecutora {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("===== INGRESE LOS DATOS =====");
-        System.out.println("ID: ");
+        System.out.println("Ingrese el ID de la laptop que desea añadir: ");
         int id = scanner.nextInt();
         System.out.println("Modelo: ");
         String modelo = scanner.next();
@@ -236,11 +242,11 @@ public class Ejecutora {
 
         System.out.println("Procesador: ");
         String procesador = scanner.next();
-        System.out.println("RAM: ");
+        System.out.println("Memoria RAM: ");
         int ram = scanner.nextInt();
-        System.out.println("ALMACENAMIENTO: ");
+        System.out.println("Almacenamiento: ");
         int almacenamiento = scanner.nextInt();
-        System.out.println("BATERIA: ");
+        System.out.println("Tamaño de Bateria: ");
         int bateria = scanner.nextInt();
 
 
@@ -251,7 +257,7 @@ public class Ejecutora {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("===== INGRESE LOS DATOS =====");
-        System.out.println("ID: ");
+        System.out.println("Ingrese el ID del servidor que desea añadir: ");
         int id = scanner.nextInt();
         System.out.println("Modelo: ");
         String modelo = scanner.next();
@@ -283,7 +289,7 @@ public class Ejecutora {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("===== INGRESE LOS DATOS =====");
-        System.out.println("ID: ");
+        System.out.println("Ingrese el ID de la impresera que desea añadir: ");
         int id = scanner.nextInt();
         System.out.println("Modelo: ");
         String modelo = scanner.next();
@@ -325,10 +331,26 @@ public class Ejecutora {
         }
     }
     public static void ListarImpresoras(){
-        for (Equipos_de_Computo imp : Laptop.ListaDeEquiposDeComputo){
+        for (Equipos_de_Computo imp : Impresora.ListaDeEquiposDeComputo){
             imp.ListarImpresora();
         }
     }
+    public static void ListarTodo(){
+        for (Equipos_de_Computo item : Equipos_de_Computo.ListaDeEquiposDeComputo) {
+            item.ListarTodo();
+
+            if (item instanceof Computadora) {
+                ListarComputadora();
+            } else if (item instanceof Laptop) {
+                ListarLaptops();
+            } else if (item instanceof Servidores) {
+                ListarServidores();
+            } else if (item instanceof Impresora) {
+                ListarImpresoras();
+            }
+        }
+    }
+
 
     //ACTUALIZAR ITEM'S
     public static void actualizarComputadoraUser() {

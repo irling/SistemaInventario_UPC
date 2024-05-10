@@ -19,6 +19,7 @@ public class Laptop extends Equipos_de_Computo{
         Laptop laptop = new Laptop(id, modelo, marca, ano, serial_number, estado, stock, procesador, ram, almacenamiento, bateria);
         ListaDeEquiposDeComputo.add(laptop);
     }
+
     public void ListarLaptop(){
         System.out.println("Laptop { " + "ID: " + getId() +
                 " \nModelo: " + getModelo() +
