@@ -325,8 +325,8 @@ public class Ejecutora {
         }
     }
     public static void ListarImpresoras(){
-        for (Equipos_de_Computo lap : Laptop.ListaDeEquiposDeComputo){
-            lap.ListarImpresora();
+        for (Equipos_de_Computo imp : Laptop.ListaDeEquiposDeComputo){
+            imp.ListarImpresora();
         }
     }
 
@@ -379,7 +379,40 @@ public class Ejecutora {
 
     }
     public static void actualizarImpresoraUser() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese el ID de la impresora que desea actualizar:");
+        int id = scanner.nextInt();
+        scanner.nextLine();
 
+        try {
+            System.out.println("Ingrese el nuevo modelo:");
+            String modelo = scanner.nextLine();
+            System.out.println("Ingrese la nueva marca:");
+            String marca = scanner.nextLine();
+            System.out.println("Ingrese el nuevo año:");
+            int ano = scanner.nextInt();
+            scanner.nextLine();
+            System.out.println("Ingrese el nuevo número de serie:");
+            String serialNumber = scanner.nextLine();
+            System.out.println("Ingrese el nuevo estado:");
+            String estado = scanner.nextLine();
+            System.out.println("Ingrese el nuevo stock:");
+            int stock = scanner.nextInt();
+            scanner.nextLine();
+            System.out.println("Ingrese el nuevo tipo de impresión:");
+            String tipoImpresion = scanner.nextLine();
+            System.out.println("Ingrese el nuevo consumible:");
+            String consumible = scanner.nextLine();
+            System.out.println("Ingrese la nueva velocidad de impresión:");
+            int velocidadImpresion = scanner.nextInt();
+            scanner.nextLine();
+
+            Impresora impresora = new Impresora();
+            impresora.actualizarImpresoras(id, modelo, marca, ano, serialNumber, estado, stock, tipoImpresion, consumible, velocidadImpresion);
+            System.out.println("La impresora con ID " + id + " ha sido actualizada exitosamente.");
+        } catch (Exception e) {
+            System.out.println("Error al intentar actualizar la impresora: " + e.getMessage());
+        }
     }
 
 
@@ -400,7 +433,20 @@ public class Ejecutora {
     }
     public static void eliminarLaptopUser() {}
     public static void eliminarServidorUser() {}
-    public static void eliminarImpresoraUser() {}
+    public static void eliminarImpresoraUser() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese el ID de la impresora que desea eliminar:");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+        try {
+            Impresora impresora = new Impresora();
+            impresora.eliminarImpresoras(id);
+            System.out.println("La impresora con ID " + id + " ha sido eliminada exitosamente.");
+        } catch (Exception e) {
+            System.out.println("Error al intentar eliminar la impresora: " + e.getMessage());
+        }
+    }
 
     //BUSCAR ITEM'S
     public static void buscarComputadoraUser() {
@@ -420,6 +466,20 @@ public class Ejecutora {
     }
     public static void buscarLaptopUser() {}
     public static void buscarServidorUser() {}
-    public static void buscarImpresoraUser() {}
+    public static void buscarImpresoraUser() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese el ID de la impresora que desea buscar:");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+        try {
+            Impresora impresora = new Impresora();
+            Impresora impresoraEncontrada = impresora.buscarImpresoras(id);
+            System.out.println("Impresora encontrada:");
+            impresoraEncontrada.ListarImpresora();
+        } catch (Exception e) {
+            System.out.println("Error al intentar buscar la impresora: " + e.getMessage());
+        }
+    }
 
 }
