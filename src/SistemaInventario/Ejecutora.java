@@ -245,12 +245,15 @@ public class Ejecutora {
         System.out.println("Memoria RAM: ");
         int ram = scanner.nextInt();
         System.out.println("Almacenamiento: ");
-        int almacenamiento = scanner.nextInt();
+        double almacenamiento = scanner.nextDouble();
         System.out.println("Tamaño de Bateria: ");
         int bateria = scanner.nextInt();
+        System.out.println("Tarjeta Gráfica: ");
+        String tarjeta_grafica = scanner.next();
+        System.out.println("Pantalla: ");
+        String pantalla = scanner.next();
 
-
-        laptop.añadirLaptop(id, modelo, marca, ano, serial_number, estado, stock, procesador, ram, almacenamiento, bateria);
+        laptop.añadirLaptop(id, modelo, marca, ano, serial_number, estado, stock, procesador, ram, almacenamiento, bateria, tarjeta_grafica, pantalla);
     }
     public static void añadirServidorUser() {
         Servidor servidor = new Servidor();
