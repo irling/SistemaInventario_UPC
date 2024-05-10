@@ -245,12 +245,15 @@ public class Ejecutora {
         System.out.println("Memoria RAM: ");
         int ram = scanner.nextInt();
         System.out.println("Almacenamiento: ");
-        int almacenamiento = scanner.nextInt();
+        double almacenamiento = scanner.nextDouble();
         System.out.println("Tamaño de Bateria: ");
         int bateria = scanner.nextInt();
+        System.out.println("Tarjeta Gráfica: ");
+        String tarjeta_grafica = scanner.next();
+        System.out.println("Pantalla: ");
+        String pantalla = scanner.next();
 
-
-        laptop.añadirLaptop(id, modelo, marca, ano, serial_number, estado, stock, procesador, ram, almacenamiento, bateria);
+        laptop.añadirLaptop(id, modelo, marca, ano, serial_number, estado, stock, procesador, ram, almacenamiento, bateria, tarjeta_grafica, pantalla);
     }
     public static void añadirServidorUser() {
         Servidor servidor = new Servidor();
@@ -395,7 +398,48 @@ public class Ejecutora {
         }
     }
     public static void actualizarLaptopUser() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese el ID de la laptop que desea actualizar:");
+        int id = scanner.nextInt();
+        scanner.nextLine();
 
+        try {
+            System.out.println("Ingrese el nuevo modelo:");
+            String modelo = scanner.nextLine();
+            System.out.println("Ingrese la nueva marca:");
+            String marca = scanner.nextLine();
+            System.out.println("Ingrese el nuevo año:");
+            int ano = scanner.nextInt();
+            scanner.nextLine();
+            System.out.println("Ingrese el nuevo número de serie:");
+            String serialNumber = scanner.nextLine();
+            System.out.println("Ingrese el nuevo estado:");
+            String estado = scanner.nextLine();
+            System.out.println("Ingrese el nuevo stock:");
+            int stock = scanner.nextInt();
+            scanner.nextLine();
+            System.out.println("Ingrese el nuevo procesador:");
+            String procesador = scanner.nextLine();
+            System.out.println("Ingrese la nueva cantidad de RAM (en GB):");
+            int ram = scanner.nextInt();
+            scanner.nextLine();
+            System.out.println("Ingrese el nuevo almacenamiento (en TB):");
+            double almacenamiento = scanner.nextDouble();
+            scanner.nextLine();
+            System.out.println("Ingrese el nuevo tamaño de batería (en MaH):");
+            int bateria = scanner.nextInt();
+            scanner.nextLine();
+            System.out.println("Ingrese la nueva tarjeta gráfica:");
+            String tarjetaGrafica = scanner.nextLine();
+            System.out.println("Ingrese el nuevo tipo de pantalla:");
+            String pantalla = scanner.nextLine();
+
+            Laptop laptop = new Laptop();
+            laptop.editarlaptop(id, modelo, marca, ano, serialNumber, estado, stock, procesador, ram, almacenamiento, bateria, tarjetaGrafica, pantalla);
+            System.out.println("La laptop con ID " + id + " ha sido actualizada exitosamente.");
+        } catch (Exception e) {
+            System.out.println("Error al intentar actualizar la laptop: " + e.getMessage());
+        }
     }
     //Editar Servidor
     public static void actualizarServidorUser() {
@@ -493,7 +537,20 @@ public class Ejecutora {
             System.out.println("Error al intentar eliminar la computadora: " + e.getMessage());
         }
     }
-    public static void eliminarLaptopUser() {}
+    public static void eliminarLaptopUser() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese el ID de la laptop que desea eliminar:");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+        try {
+            Laptop laptop = new Laptop();
+            laptop.eliminarLaptop(id);
+            System.out.println("La laptop con ID " + id + " ha sido eliminada exitosamente.");
+        } catch (Exception e) {
+            System.out.println("Error al intentar eliminar la laptop: " + e.getMessage());
+        }
+    }
     public static void eliminarServidorUser() {}
     public static void eliminarImpresoraUser() {
         Scanner scanner = new Scanner(System.in);
@@ -526,8 +583,24 @@ public class Ejecutora {
             System.out.println("Error al intentar buscar la computadora: " + e.getMessage());
         }
     }
-    public static void buscarLaptopUser() {}
-    public static void buscarServidorUser() {}
+    public static void buscarLaptopUser() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese el ID de la laptop que desea buscar:");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+        try {
+            Laptop laptop = new Laptop();
+            Laptop laptopEncontrada = laptop.buscarLaptop(id);
+            System.out.println("Laptop encontrada:");
+            laptopEncontrada.ListarLaptop();
+        } catch (Exception e) {
+            System.out.println("Error: No se encontró la laptop con el ID especificado.");
+        }
+    }
+    public static void buscarServidorUser() {
+
+    }
     public static void buscarImpresoraUser() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese el ID de la impresora que desea buscar:");
