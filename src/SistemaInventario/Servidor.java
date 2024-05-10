@@ -18,7 +18,7 @@ public class Servidor extends Equipos_de_Computo{
         this.tipo_instalacion = tipo_instalacion;
     }
 
-    public void añadirServidor(int id, String modelo, String marca, int ano, String serial_number, String estado, int stock, String procesador, int ram, int almacenamiento, String tipo_instalacion){
+    public void añadirServidor(int id, String modelo, String marca, int ano, String serial_number, String estado, int stock, String procesador, int ram, double almacenamiento, String tipo_instalacion){
         Servidor servidor = new Servidor(id, modelo, marca, ano, serial_number, estado, stock, procesador, ram, almacenamiento, tipo_instalacion);
         ListaDeEquiposDeComputo.add(servidor);
     }
@@ -51,31 +51,50 @@ public class Servidor extends Equipos_de_Computo{
     }
 
 
-    public void editarservidor(int id, String modelo,String marca, int ano, String serial_number, String estado, int stock, String procesador, int ram, int almacenamiento, String tipo_instalacion) throws NoSuchElementException {
+    public void editarServidor(int id, String modelo,String marca, int ano, String serial_number, String estado, int stock, String procesador, int ram, double almacenamiento, String tipo_instalacion) throws NoSuchElementException {
         boolean encontrado = false;
-    for (Equipos_de_Computo equipo : ListaDeEquiposDeComputo) {
-        if (equipo instanceof Servidor && equipo.getId() == id) {
-            // Actualizar los campos relevantes de la computadora existente
-            Servidor servidor = (Servidor) equipo;
-            servidor.setModelo(modelo);
-            servidor.setMarca(marca);
-            servidor.setAno(ano);
-            servidor.setSerial_number(serial_number);
-            servidor.setEstado(estado);
-            servidor.setStock(stock);
-            servidor.setProcesador(procesador);
-            servidor.setRam(ram);
-            servidor.setAlmacenamiento(almacenamiento);
-            servidor.setAlmacenamiento(almacenamiento);
-            servidor.setTipo_instalacion(tipo_instalacion);
-            encontrado = true;
-            System.out.println("El servidor con ID " + id + " ha sido actualizada exitosamente.");
-            break;
+        for (Equipos_de_Computo equipo : ListaDeEquiposDeComputo) {
+            if (equipo instanceof Servidor && equipo.getId() == id) {
+                // Actualizar los campos relevantes de la computadora existente
+                Servidor servidor = (Servidor) equipo;
+                if (modelo != null) {
+                    servidor.setModelo(modelo);
+                }
+                if (marca != null) {
+                    servidor.setMarca(marca);
+                }
+                if (ano != -1) {
+                    servidor.setAno(ano);
+                }
+                if (serial_number != null) {
+                    servidor.setSerial_number(serial_number);
+                }
+                if (estado != null) {
+                    servidor.setEstado(estado);
+                }
+                if(stock != -1) {
+                    servidor.setStock(stock);
+                }
+                if(procesador != null) {
+                    servidor.setProcesador(procesador);
+                }
+                if(ram != -1) {
+                    servidor.setRam(ram);
+                }
+                if(almacenamiento != -1) {
+                    servidor.setAlmacenamiento(almacenamiento);
+                }
+                if (tipo_instalacion != null) {
+                    servidor.setTipo_instalacion(tipo_instalacion);
+                }
+                encontrado = true;
+                System.out.println("El servidor con ID " + id + " ha sido actualizada exitosamente.");
+                break;
+            }
         }
-    }
-    if (!encontrado) {
-        throw new NoSuchElementException("No se encontró un servidor con el ID especificado.");
-    }
+        if (!encontrado) {
+            throw new NoSuchElementException("No se encontró un servidor con el ID especificado.");
+        }
     }
     public void eliminarServidor(int id) throws NoSuchElementException {
         Iterator<Equipos_de_Computo> iterador = ListaDeEquiposDeComputo.iterator();
@@ -83,9 +102,9 @@ public class Servidor extends Equipos_de_Computo{
         while (iterador.hasNext()) {
             Equipos_de_Computo equipo = iterador.next();
             if (equipo instanceof Servidor && equipo.getId() == id) {
-                iterador.remove();
-                eliminado = true;
-                break;
+                    iterador.remove();
+                    eliminado = true;
+                    break;
             }
         }
         if (!eliminado) {

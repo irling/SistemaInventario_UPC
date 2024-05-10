@@ -1,5 +1,5 @@
 package SistemaInventario;
-
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Ejecutora {
@@ -397,9 +397,49 @@ public class Ejecutora {
     public static void actualizarLaptopUser() {
 
     }
+    //Editar Servidor
     public static void actualizarServidorUser() {
+        System.out.println("Ingrese el ID del servidor que desea actualizar:");
+        int id = scanner.nextInt();
+        scanner.nextLine();
 
+        try {
+            System.out.println("Ingrese el nuevo modelo:");
+            String modelo = scanner.nextLine();
+            System.out.println("Ingrese la nueva marca:");
+            String marca = scanner.nextLine();
+            System.out.println("Ingrese el nuevo año:");
+            int ano = scanner.nextInt();
+            scanner.nextLine();
+            System.out.println("Ingrese el nuevo número de serie:");
+            String serialNumber = scanner.nextLine();
+            System.out.println("Ingrese el nuevo estado:");
+            String estado = scanner.nextLine();
+            System.out.println("Ingrese el nuevo stock:");
+            int stock = scanner.nextInt();
+            scanner.nextLine();
+            System.out.println("Ingrese el nuevo procesador:");
+            String procesador = scanner.nextLine();
+            System.out.println("Ingrese la nueva cantidad de RAM:");
+            int ram = scanner.nextInt();
+            scanner.nextLine();
+            System.out.println("Ingrese el nuevo almacenamiento:");
+            double almacenamiento = scanner.nextDouble();
+            scanner.nextLine();
+            System.out.println("Ingrese el nuevo tipo de instalación:");
+            String tipoInstalacion = scanner.nextLine();
+
+            // Crear una instancia de Servidor
+            Servidor servidor = new Servidor();
+
+            // Llamar al método editarServidor en la instancia creada
+            servidor.editarServidor(id, modelo, marca, ano, serialNumber, estado, stock, procesador, ram, almacenamiento, tipoInstalacion);
+            System.out.println("El servidor con ID " + id + " ha sido actualizado exitosamente.");
+        } catch (NoSuchElementException e) {
+            System.out.println("Error al intentar actualizar el servidor: " + e.getMessage());
+        }
     }
+    //Actualizar impresoras
     public static void actualizarImpresoraUser() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese el ID de la impresora que desea actualizar:");
