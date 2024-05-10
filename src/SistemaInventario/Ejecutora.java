@@ -551,7 +551,20 @@ public class Ejecutora {
             System.out.println("Error al intentar eliminar la laptop: " + e.getMessage());
         }
     }
-    public static void eliminarServidorUser() {}
+    public static void eliminarServidorUser() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese el ID del servidor que desea eliminar:");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+        try {
+            Servidor servidor = new Servidor(); // Crear una instancia de Servidor
+            servidor.eliminarServidor(id); // Llamar al método eliminarServidor
+            System.out.println("El servidor con ID " + id + " ha sido eliminado exitosamente.");
+        } catch (NoSuchElementException e) {
+            System.out.println("Error al intentar eliminar el servidor: " + e.getMessage());
+        }
+    }
     public static void eliminarImpresoraUser() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese el ID de la impresora que desea eliminar:");
